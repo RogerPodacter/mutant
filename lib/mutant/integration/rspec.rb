@@ -55,6 +55,7 @@ module Mutant
       #
       # @return [Result::Test]
       def call(tests)
+        reset_examples
         setup_examples(tests.map(&all_tests_index))
         start = timer.now
         passed = @runner.run_specs(@rspec_world.ordered_example_groups).equal?(EXIT_SUCCESS)

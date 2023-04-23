@@ -28,7 +28,19 @@ module Mutant
             end
           end
 
-          SUBCOMMANDS = [List].freeze
+          class Run < self
+            NAME              = 'run'
+            SHORT_DESCRIPTION = 'Run tests'
+            SUBCOMMANDS       = EMPTY_ARRAY
+
+          private
+
+            def action
+              bootstrap.bind(&Mutant::Test::Runner.method(:call))
+            end
+          end
+
+          SUBCOMMANDS = [List, Run].freeze
         end # Test
       end # Environment
     end # Command

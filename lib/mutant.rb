@@ -203,6 +203,8 @@ module Mutant
     require 'mutant/expression/namespace'
     require 'mutant/expression/parser'
     require 'mutant/test'
+    require 'mutant/test/runner'
+    require 'mutant/test/runner/sink'
     require 'mutant/timer'
     require 'mutant/integration'
     require 'mutant/integration/null'
